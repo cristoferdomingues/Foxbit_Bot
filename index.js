@@ -115,10 +115,6 @@ function onExecutionReportNew(data) {
   logConsole("***************************************************");
 }
 function onExecutionReportPartial(data) {
-<<<<<<< HEAD
-=======
-  console.log("onExecutionReportPartial",data)
->>>>>>> 7a282233b12f4d78342b990bd0ab19d3612b93a5
   logConsole("***************************************************")
   logConsole("[" + dateFormat(new Date(), "h:MM:ss") + "] Foxbit Order Partially Executed:");
   var Side = data.Side == 1 ? 'Buy' : 'Sell';
@@ -128,10 +124,6 @@ function onExecutionReportPartial(data) {
   logConsole("***************************************************");
 }
 function onExecutionReportExecution(data) {
-<<<<<<< HEAD
-=======
-  console.log("onExecutionReportExecution",data)
->>>>>>> 7a282233b12f4d78342b990bd0ab19d3612b93a5
   var newvalue = data.Price
   newvalue = parseFloat(newvalue / 1e8)
   newvalue = parseFloat((newvalue * (variables.TradeLimits.PROFIT.amount/100))+newvalue)
@@ -213,12 +205,7 @@ function onOrderBookNewOrder(data) {
   VerifyChanges();
 }
 function onOrderBookUpdateOrder(data) {
-<<<<<<< HEAD
   logConsole("[" + dateFormat(new Date(), "h:MM:ss") + '] OB:UPDATE_ORDER:'+ data.side+":"+data.index);
-=======
-  console.log("onOrderBookUpdateOrder",data)
-  logConsole("[" + dateFormat(new Date(), "h:MM:ss") + '] OB:UPDATE_ORDER: '+ data);
->>>>>>> 7a282233b12f4d78342b990bd0ab19d3612b93a5
 }
 function onOrderBookDeleteOrder(data) {
   //console.log("onOrderBookDeleteOrder",data)
@@ -251,20 +238,15 @@ function onOrderBookDeleteOrder(data) {
   VerifyChanges();
 }
 function onOrderBookDeleteThruOrder(data) {
-<<<<<<< HEAD
-  //savelog(JSON.stringify(data))
+
   logConsole("[" + dateFormat(new Date(), "h:MM:ss") + '] OB:DELETE_ORDERS_THRU');
   if (data.side == 'buy') {
     for (i = 0 ; i < data.index ;i++)
     {
       delete variables.orderbooktemp.bids[i]; 
     }  
-=======
-  console.log("onOrderBookDeleteThruOrder",data)
-  logConsole("[" + dateFormat(new Date(), "h:MM:ss") + '] OB:DELETE_ORDERS_THRU');
-  if (data.side == 'buy') {
-    delete variables.orderbooktemp.bids[data.index-1]; 
->>>>>>> 7a282233b12f4d78342b990bd0ab19d3612b93a5
+
+
     var todelete = [];
     for (i = 0 ; i < variables.orderbooktemp.bids.length ;i++)
     {
@@ -276,14 +258,11 @@ function onOrderBookDeleteThruOrder(data) {
      variables.orderbooktemp.bids.splice(todelete[i],1);
     } 
   } else {
-<<<<<<< HEAD
     for (i = 0 ; i < data.index ;i++)
     {
       delete variables.orderbooktemp.asks[i]; 
     }
-=======
-    delete variables.orderbooktemp.asks[data.index-1];
->>>>>>> 7a282233b12f4d78342b990bd0ab19d3612b93a5
+
     var todelete = [];
     for (i = 0 ; i < variables.orderbooktemp.asks.length ;i++)
     {
@@ -307,11 +286,6 @@ function onOrderBookDeleteThruOrder(data) {
 }
 function onOrderBookTradeNew(data) {
   logConsole("[" + dateFormat(new Date(), "h:MM:ss") + '] OB:TRADE_NEW');
-<<<<<<< HEAD
-  //console.log("onOrderBookTradeNew",data)
-=======
-  console.log("onOrderBookTradeNew",data)
->>>>>>> 7a282233b12f4d78342b990bd0ab19d3612b93a5
 }
 
 module.exports.VerifyChangesExports =function () { 
